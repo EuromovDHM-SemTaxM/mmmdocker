@@ -32,6 +32,8 @@ RUN apt-get install -y qtwayland5 libqt5waylandclient5 qttools5-dev-tools qttool
 
 RUN git checkout mmm2.1 && CXX=g++-8 cmake -DCMAKE_BUILD_TYPE=Release . && make -j 16 && make install
 
+RUN cp /build/mmmtools/lib/* /usr/local/lib/
+
 #RUN git clone https://gitlab.com/mastermotormap/pyMMM.git /build/pyMMM
 
 #WORKDIR /build/pyMMM
