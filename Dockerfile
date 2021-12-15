@@ -21,6 +21,8 @@ WORKDIR /build/mmmcore/
 
 RUN git checkout mmm2.1 && CXX=g++-8 cmake -DCMAKE_BUILD_TYPE=Release . && make -j 16 && make install
 
+WORKDIR /build
+
 RUN git clone https://gitlab.com/twktheainur/mmmtools.git /build/mmmtools
 
 WORKDIR /build/mmmtools
@@ -28,7 +30,13 @@ WORKDIR /build/mmmtools
 RUN apt-get install -y libqt5-* libnlopt-dev qtcreator
 RUN apt-get install -y qtwayland5 libqt5waylandclient5 qttools5-dev-tools qttools5-dev libqt5svg5-dev libqt5x11extras5-dev libstdc++-7-dev libstdc++-8-dev
 
-RUN git checkout mmm2.1 && CXX=g++-7 cmake -DCMAKE_BUILD_TYPE=Release . && make -j 16 && make install
+RUN git checkout mmm2.1 && CXX=g++-8 cmake -DCMAKE_BUILD_TYPE=Release . && make -j 16 && make install
+
+#RUN git clone https://gitlab.com/mastermotormap/pyMMM.git /build/pyMMM
+
+#WORKDIR /build/pyMMM
+#RUN apt install -y swig python3-numpy python3-qt*  python3-pyqt*
+#RUN CXX=g++8 cmake . && make -j16 && make install 
 
 
 
